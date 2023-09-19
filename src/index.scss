@@ -1,0 +1,36 @@
+$primary: #00c6dd;
+$secondary: #b7975b;
+$tertiary: #f1e3d4;
+
+$btn-border-radius: 10px;
+
+@import "~bootstrap/scss/bootstrap";
+
+body {
+    margin: 0;
+    font-family: "DM Sans", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.cardImg {
+    height: 215px;
+}
+
+.title {
+    font-weight: 600;
+    font-size: 16px;
+    margin-bottom: 3px;
+    margin-top: 3px;
+}
+
+.addButton {
+    color: white;
+    padding: 6px;
+    font-size: 12px;
+}
+
+.bodyText {
+    font-size: 14px;
+}
+
