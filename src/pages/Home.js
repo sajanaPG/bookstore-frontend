@@ -5,7 +5,7 @@ import { getRequest } from "../services/ApiService";
 import { useNavigate } from 'react-router-dom';
 
 
-const Home = () => {
+const Home = ({setSelectedBook}) => {
 
     const [books, setBooks] = useState([]);
 
@@ -22,7 +22,7 @@ const Home = () => {
     }, [])
 
     const handleCardClick = (book) => {
-        console.log("Card Clicked: " , book.title);
+        setSelectedBook(book);
         navigate('/bookDetails');
     };
     
@@ -39,7 +39,8 @@ const Home = () => {
                                         <Card.Title className="title"> {book.title} </Card.Title>
                                         <Card.Text className="mb-1 bodyText">
                                             {book.author} <br />
-                                            Rs. {book.price.toFixed(2)}
+                                            Rs. {book.price.toFixed(2)} <br/>
+                                            {book.subcategory.category.name} | {book.subcategory.name}
                                         </Card.Text>
                                         <Button className="addButton" variant="primary" onClick={() => handleCardClick(book)}>View Book</Button>
                                     </Card.Body>

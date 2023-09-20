@@ -13,7 +13,7 @@ const Layout = () => {
                 <Outlet />
             </Container>
 
-            <footer className="bg-body-tertiary py-3">
+            <footer className="st-footer" >
                 <Container>This is the footer</Container>
             </footer>
         </div>

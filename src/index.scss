@@ -13,11 +13,19 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+.st-footer {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    min-height: 100vh;
+}
+
 .cardImg {
     height: 215px;
 }
 
 .title {
+    text-transform: uppercase;
     font-weight: 600;
     font-size: 16px;
     margin-bottom: 3px;
@@ -32,5 +40,32 @@ body {
 
 .bodyText {
     font-size: 14px;
+}
+
+.detail-text {
+    position: absolute;
+    right: 320px;
+    background-color: #dbf6f1;
+    border-radius: 5px;
+    padding: 40px 80px 25px 100px;
+    width: 50%;
+    min-height: 300px;
+}
+
+.detail-img {
+    position: absolute;
+    left: 290px;
+    top: 120px;
+}
+
+.coverImg {
+    max-width: 200px;
+    max-height: 450px;
+}
+
+.cartButton {
+    color: white;
+    padding: 10px 16px;
+    margin: 0px 16px;
 }
 
