@@ -4,7 +4,6 @@ import Card from 'react-bootstrap/Card';
 import { getRequest } from "../services/ApiService";
 import { useNavigate } from 'react-router-dom';
 
-
 const Home = ({setSelectedBook}) => {
 
     const [books, setBooks] = useState([]);
@@ -23,6 +22,8 @@ const Home = ({setSelectedBook}) => {
 
     const handleCardClick = (book) => {
         setSelectedBook(book);
+        localStorage.clear();
+        localStorage.setItem("selectedBook", JSON.stringify(book));
         navigate('/bookDetails');
     };
     

@@ -1,9 +1,13 @@
 import { useState } from 'react';
 import { Row, Col, Button } from 'react-bootstrap';
 
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../features/cartSlice';
+
 const BookDetails = ({ selectedBook }) => {
 
     const [count, setCount] = useState(1);
+    const dispatch = useDispatch();
 
     const increment = () => {
         if (count<10) {
@@ -15,6 +19,16 @@ const BookDetails = ({ selectedBook }) => {
         if (count>1) {
             setCount(count-1);
         }
+    }
+
+    const handleAddCart = (book) => {
+        const data = {
+            "id": book.id,
+            "title": book.title,
+            "price": book.price,
+            "qty": count
+        }
+        dispatch(addToCart(data));
     }
     return (
         <div className="detail-box">
@@ -46,7 +60,7 @@ const BookDetails = ({ selectedBook }) => {
 
                     <Button variant='light' className='px-4 py-2 mr-2' onClick={increment}>+</Button> 
 
-                    <Button className='cartButton' variant='primary'>ADD TO CART</Button>
+                    <Button className='cartButton' variant='primary' onClick={()=>handleAddCart(selectedBook)}>ADD TO CART</Button>
                 </div>
                 
 
