@@ -46,6 +46,15 @@ body {
     font-size: 12px;
 }
 
+.addButton:hover {
+    color: white;
+}
+
+.addButton:hover:active {
+    color: white;
+}
+
+
 .bodyText {
     font-size: 14px;
 }
@@ -71,9 +80,86 @@ body {
     max-height: 450px;
 }
 
+/* Cart */
 .cartButton {
     color: white;
     padding: 10px 16px;
-    margin: 0px 16px;
 }
 
+.cartButton:hover {
+    color: white;
+}
+
+.cartButton:hover:active {
+    color: beige;
+}
+
+.cartItem-image {
+    width: 55px;
+    height: 80px;
+}
+
+.remove-button {
+    border-radius: 10px;
+    padding: 3px 4px;
+    font-size: smaller;
+    margin-top: 3px;
+}
+
+.remove-button:hover {
+    color: white;
+}
+
+.remove-button:hover:active {
+    color: white;
+}
+
+.cart-item {
+    border-top: 1px solid rgb(187,187,187) ;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    padding-top: 16px;
+    align-items: center;
+}
+
+/* Cart Summary */
+.cart-summary {
+    border-top: 1px solid rgb(187,187,187) ;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    padding-top: 16px;
+}
+
+.ccart-checkout {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.cart-subtotal {
+    font-weight: 600;
+    padding-right: 37px;
+}
+
+.cart-total {
+    font-size: larger;
+    font-weight: 600;
+    padding-right: 37px;
+}
+
+.clear-button:hover {
+    color: white;
+}
+
+.clear-button:hover:active {
+    color: rgba(144, 222, 222, 0.63);
+}
+
+.continue-shopping , 
+.start-shopping  a{
+    text-decoration: none;
+    color: gray;
+}
+
+.start-shopping {
+    margin-top: 30px;
+}

@@ -7,7 +7,7 @@ import reportWebVitals from './reportWebVitals';
 import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
 
-import cartReducer from './features/cartSlice';
+import cartReducer, { getTotal } from './features/cartSlice';
 
 const store = configureStore({
   reducer: {
@@ -15,6 +15,7 @@ const store = configureStore({
   },
 });
 
+store.dispatch(getTotal());
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

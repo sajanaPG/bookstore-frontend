@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Row, Col, Button } from 'react-bootstrap';
+import { Row, Col, Button, Stack } from 'react-bootstrap';
 
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../features/cartSlice';
@@ -10,14 +10,14 @@ const BookDetails = ({ selectedBook }) => {
     const dispatch = useDispatch();
 
     const increment = () => {
-        if (count<10) {
-            setCount(count+1);
+        if (count < 10) {
+            setCount(count + 1);
         }
     }
 
     const decrement = () => {
-        if (count>1) {
-            setCount(count-1);
+        if (count > 1) {
+            setCount(count - 1);
         }
     }
 
@@ -25,7 +25,10 @@ const BookDetails = ({ selectedBook }) => {
         const data = {
             "id": book.id,
             "title": book.title,
+            "image": book.image,
             "price": book.price,
+            "subcategory": book.subcategory.name,
+            "category": book.subcategory.category.name,
             "qty": count
         }
         dispatch(addToCart(data));
@@ -51,18 +54,16 @@ const BookDetails = ({ selectedBook }) => {
                         </p>
                     </Col>
                 </Row>
-                
-                <div className='d-flex my-4'>
 
-                    <Button variant='light' className='px-4 py-2 mr-3' onClick={decrement}>-</Button> 
+                <Stack direction="horizontal" gap={2}>
 
-                    <label className='px-3 py-2 mx-2 bg-light text-dark rounded align-middle'> {count} </label> 
+                    <Button variant='light' className='px-4 py-2' onClick={decrement}>-</Button>
+                    <label className='px-3 py-2 bg-light text-dark rounded align-middle'> {count} </label>
+                    <Button variant='light' className='px-4 py-2' onClick={increment}>+</Button>
+                    <Button className='cartButton' variant='primary' onClick={() => handleAddCart(selectedBook)}>ADD TO CART</Button>
+                    
+                </Stack>
 
-                    <Button variant='light' className='px-4 py-2 mr-2' onClick={increment}>+</Button> 
-
-                    <Button className='cartButton' variant='primary' onClick={()=>handleAddCart(selectedBook)}>ADD TO CART</Button>
-                </div>
-                
 
             </div>
 

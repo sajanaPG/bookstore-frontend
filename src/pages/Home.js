@@ -22,7 +22,6 @@ const Home = ({setSelectedBook}) => {
 
     const handleCardClick = (book) => {
         setSelectedBook(book);
-        localStorage.clear();
         localStorage.setItem("selectedBook", JSON.stringify(book));
         navigate('/bookDetails');
     };

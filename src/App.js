@@ -8,6 +8,7 @@ import Home from './pages/Home';
 import BookDetails from './pages/BookDetails';
 import { useState } from 'react';
 import Cart from './pages/Cart';
+import cartSlice from "./features/cartSlice";
 
 function App() {
   
@@ -21,7 +22,7 @@ function App() {
         <Route path="/" element={<Layout/>}>
           <Route path='/' element={<Home setSelectedBook={setSelectedBook}/>}/>
           <Route path="/bookDetails" element={<BookDetails selectedBook={selectedBook}/>} />
-          <Route path='/cart' element={<Cart/>}/>
+          <Route path='/cart' element={<Cart cart={cartSlice}/>}/>
         </Route>
 
       </Routes>
