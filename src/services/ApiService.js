@@ -8,5 +8,12 @@ export const getRequest = async path => {
         return response;
     } catch (error) {
         console.log(error);
+        if(error && error.response.status === 401) {
+            sessionStorage.removeItem("token");
+            sessionStorage.removeItem("email");
+            sessionStorage.removeItem("user_id");
+            sessionStorage.removeItem("role");
+            window.location.href = "/login";
+        }
     }
 }

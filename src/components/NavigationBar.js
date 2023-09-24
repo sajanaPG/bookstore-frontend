@@ -3,9 +3,17 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Badge from 'react-bootstrap/Badge';
 import { useSelector } from "react-redux/es/hooks/useSelector";
+import { useNavigate } from 'react-router';
 
 function NavigationBar() {
     const cart = useSelector(state => state.cart);
+    const auth = sessionStorage.getItem('email');
+    const navigate = useNavigate();
+
+    const logout = () => {
+        sessionStorage.clear();
+        navigate('/')
+    }
     return (
         <>
             <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary">
@@ -32,7 +40,19 @@ function NavigationBar() {
                                 </svg>
                                 <Badge bg="secondary" className='bag-qty'>{cart.cartTotalQty}</Badge>
                             </Nav.Link>
-                            <Nav.Link eventKey={2} href="#memes">User</Nav.Link>
+
+                            {auth ?
+                                <>
+                                    <Nav.Link href="/user">{auth}</Nav.Link>
+                                    <Nav.Link onClick={logout} >Log out</Nav.Link>
+                                </>
+                                :
+                                <>
+                                    <Nav.Link href="/login">Login</Nav.Link>
+                                    <Nav.Link href="/register">SignUp</Nav.Link>
+                                </>
+                            }
+
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
