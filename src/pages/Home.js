@@ -31,7 +31,7 @@ const Home = ({setSelectedBook}) => {
             <Row className="mt-3">
                 {books && books.map(book => {
                     return (
-                        <Col lg='2' md='4' className="mt-4 py-2" key={book.id}>
+                        <Col lg='2' md='4' xs='6' className="mt-4 py-2" key={book.id}>
                             <div onClick={() => handleCardClick(book)}>
                                 <Card style={{ width: '9.5rem' }}>
                                     <Card.Img variant="top" className="cardImg" src={book.image} />

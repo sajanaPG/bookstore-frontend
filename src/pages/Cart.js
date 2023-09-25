@@ -50,7 +50,7 @@ const Cart = () => {
             ) : (
                 <div>
                     <Row>
-                        <Col lg="4" className="text-center">
+                        <Col lg="4" className="px-3">
                             <h5>Title</h5>
                         </Col>
                         <Col lg="2" className="text-end px-5">
@@ -107,7 +107,7 @@ const Cart = () => {
                                 Total
                             </div>
                             <div className="cart-total">
-                                Rs. {cart.cartTotalAmount}                                
+                                Rs. {cart.cartTotalAmount.toFixed(2)}                                
                             </div>
                         </Stack>
 
