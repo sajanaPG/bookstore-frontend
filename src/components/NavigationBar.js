@@ -4,14 +4,23 @@ import Navbar from 'react-bootstrap/Navbar';
 import Badge from 'react-bootstrap/Badge';
 import { useSelector } from "react-redux/es/hooks/useSelector";
 import { useNavigate } from 'react-router';
+import { useDispatch } from "react-redux";
+import { clearCart } from "../features/cartSlice";
+import { toast } from "react-toastify";
 
 function NavigationBar() {
     const cart = useSelector(state => state.cart);
     const auth = sessionStorage.getItem('email');
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     const logout = () => {
         sessionStorage.clear();
+        localStorage.clear();
+        dispatch(clearCart());
+        toast.success(`Logged Out`, {
+            position: "bottom-left",
+        });
         navigate('/')
     }
     return (
