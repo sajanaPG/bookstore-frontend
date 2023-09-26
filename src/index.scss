@@ -63,6 +63,7 @@ body {
     font-size: 14px;
 }
 
+/* Bookdetails page */
 .detail-text {
     position: absolute;
     right: 320px;
@@ -71,6 +72,12 @@ body {
     padding: 40px 80px 25px 100px;
     width: 50%;
     min-height: 300px;
+}
+
+.book-detail h6 {
+    margin-top: 20px;
+    font-style: italic;
+    color: red;
 }
 
 .detail-img {
@@ -85,7 +92,7 @@ body {
 }
 
 /* Cart */
-.cartButton, .cartButton:hover, .cartButton:hover:active {
+.cartButton, .cartButton:hover, .cartButton:hover:active, .cartButton:disabled {
     color: white;
     padding: 10px 16px;
 }

@@ -41,10 +41,14 @@ const BookDetails = ({ selectedBook }) => {
                     <h5>Rs. {selectedBook.price.toFixed(2)}</h5>
                     <Col lg="5">
 
-                        <p className='my-3'>
+                        <p className='my-3 book-detail'>
                             Author: {selectedBook.author} <br />
                             Category: {selectedBook.subcategory.category.name} <br />
                             Subcategory: {selectedBook.subcategory.name} <br />
+                            {selectedBook.qoh===0 ? 
+                                <h6>Out of stock</h6> : null
+                            }
+                            
                         </p>
                     </Col>
 
@@ -60,7 +64,7 @@ const BookDetails = ({ selectedBook }) => {
                     <Button variant='light' className='px-4 py-2' onClick={decrement}>-</Button>
                     <label className='px-3 py-2 bg-light text-dark rounded align-middle'> {count} </label>
                     <Button variant='light' className='px-4 py-2' onClick={increment}>+</Button>
-                    <Button className='cartButton' variant='primary' onClick={() => handleAddCart(selectedBook)}>ADD TO CART</Button>
+                    <Button className='cartButton' variant='primary' disabled={selectedBook.qoh===0?true:false} onClick={() => handleAddCart(selectedBook)}>ADD TO CART</Button>
                     
                 </Stack>
 
