@@ -5,7 +5,7 @@ import Badge from 'react-bootstrap/Badge';
 import { useSelector } from "react-redux/es/hooks/useSelector";
 import { useNavigate } from 'react-router';
 import { useDispatch } from "react-redux";
-import { clearCart } from "../features/cartSlice";
+import { emptyCart } from "../features/cartSlice";
 import { toast } from "react-toastify";
 
 function NavigationBar() {
@@ -17,11 +17,11 @@ function NavigationBar() {
     const logout = () => {
         sessionStorage.clear();
         localStorage.clear();
-        dispatch(clearCart());
+        dispatch(emptyCart());
         toast.success(`Logged Out`, {
             position: "bottom-left",
         });
-        navigate('/')
+        navigate('/');
     }
     return (
         <>

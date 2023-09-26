@@ -1,14 +1,15 @@
 import { useSelector } from "react-redux/es/hooks/useSelector";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Stack from 'react-bootstrap/Stack';
 import { Button, Col, Image, Row } from "react-bootstrap";
 import { useDispatch } from "react-redux";
-import {  decreaseCart, increaseCart, removeFromCart, clearCart, getTotal } from "../features/cartSlice";
+import { decreaseCart, increaseCart, removeFromCart, clearCart, getTotal } from "../features/cartSlice";
 import { useEffect } from "react";
 
 const Cart = () => {
     const cart = useSelector(state => state.cart);
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const increment = (item) => {
         dispatch(increaseCart(item));
@@ -25,6 +26,10 @@ const Cart = () => {
     useEffect(() => {
         dispatch(getTotal());
     }, [cart,dispatch]);
+
+    const handleCheckout = () => {
+        navigate('/checkout');
+    };
 
     return (
         <div className="mx-4">
@@ -111,10 +116,10 @@ const Cart = () => {
                             </div>
                         </Stack>
 
-                        <div className="cart-checkout ">
+                        <div>
                             <Row>
                                 <Col md={{ offset: 10 }} className="text-end px-5 my-2">
-                                    <Button variant="primary" className="cartButton">Check Out</Button>
+                                    <Button variant="primary" className="cartButton" onClick={handleCheckout}>Check Out</Button>
                                 </Col>
                             </Row>
 

@@ -122,11 +122,6 @@ body {
     padding-top: 16px;
 }
 
-.ccart-checkout {
-    display: flex;
-    justify-content: flex-end;
-}
-
 .cart-subtotal {
     font-weight: 600;
     padding-right: 37px;
@@ -155,3 +150,19 @@ body {
 .start-shopping {
     margin-top: 30px;
 }
+
+/* Checkout page */
+.checkout-total {
+    border-top: 1px solid rgb(187,187,187) ;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    padding-top: 16px;
+}
+.checkout-submit {
+    margin-top: 40px;
+}
+
+.checkout-address {
+    width: 500px;
+}
+

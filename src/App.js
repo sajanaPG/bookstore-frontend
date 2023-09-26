@@ -12,6 +12,7 @@ import { useState } from 'react';
 import Cart from './pages/Cart';
 import cartSlice from "./features/cartSlice";
 import ProtectedRoute from "./components/ProtectedRoute";
+import Checkout from "./pages/Checkout";
 
 function App() {
 
@@ -33,7 +34,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           
           <Route element={<ProtectedRoute />}>
-
+            <Route path="/checkout" element={<Checkout/>} />
           </Route>
 
         </Route>

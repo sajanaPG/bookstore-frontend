@@ -49,7 +49,7 @@ const Login = () => {
                     </div>
 
                     <Form onSubmit={handleLogin}>
-                        <FloatingLabel controlId='email' label="Select an Email" className='mb-3'>
+                        <FloatingLabel controlId='email' label="Enter your Email" className='mb-3'>
                             <Form.Control required placeholder='Enter Your Email' value={email} onChange={handleEmail} />
                         </FloatingLabel>
 
