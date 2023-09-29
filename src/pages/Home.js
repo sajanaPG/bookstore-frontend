@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import { Row, Col, Button, Nav } from 'react-bootstrap';
-import Card from 'react-bootstrap/Card';
+import { Row, Col, Nav } from 'react-bootstrap';
 import { getRequest } from "../services/ApiService";
-import { useNavigate } from 'react-router-dom';
+import BookCard from "../components/BookCard";
+import SlickSlider from "../components/SlickSlider";
+
 
 const Home = ({ setSelectedBook }) => {
 
@@ -11,9 +12,8 @@ const Home = ({ setSelectedBook }) => {
     const [categories, setCategories] = useState([]);
     const [subcategories, setSubcategories] = useState([]);
     const [filteredSubcategories, setFilteredSubcategories] = useState([]);
-    const [catId,setCatid] = useState(0);
-
-    const navigate = useNavigate();
+    const [catId, setCatid] = useState(0);
+    const [newArrivals, setNewArrivals] = useState([]);
 
     useEffect(() => {
         const fetchBooks = async () => {
@@ -36,6 +36,14 @@ const Home = ({ setSelectedBook }) => {
         fetchCategories();
         fetchSubcategories();
     }, []);
+
+    useEffect(() => {
+        const copyOfBooks = [...books];
+        // Sort the copy in descending order based on the 'id' attribute
+        const sortedBooks = copyOfBooks.sort((a, b) => b.id - a.id);
+
+        setNewArrivals(sortedBooks.slice(0, 10));
+    }, [books]);
 
     const filterBooksByCatId = (catId) => {
         const bookFilter = books.filter(book => {
@@ -70,23 +78,18 @@ const Home = ({ setSelectedBook }) => {
                 return book.subcategory.id === selectedSubId;
             });
             setFilteredBooks(filtered);
-        } else {            
+        } else {
             filterBooksByCatId(catId)
         };
-    };
-
-
-    const handleCardClick = (book) => {
-        setSelectedBook(book);
-        localStorage.setItem("selectedBook", JSON.stringify(book));
-        navigate('/bookDetails');
     };
 
     return (
         <div>
 
+
+
             <div className="text-center">
-                <h3 className="mb-2">Categories</h3>
+                <h3 className="mb-2 section-heading">Categories</h3>
 
                 <Nav justify variant="pills" defaultActiveKey="0" onSelect={(selectedKey) => handleCategoryNav(parseInt(selectedKey))}>
                     <Nav.Item className="nav-item">
@@ -121,31 +124,22 @@ const Home = ({ setSelectedBook }) => {
             </div>
 
             <Row className="mt-3">
-                {filteredBooks.length>0 ? filteredBooks.map(book => {
+                {filteredBooks.length > 0 ? filteredBooks.map(book => {
                     return (
                         <Col lg='2' md='4' xs='6' className="mt-4 py-2" key={book.id}>
-                            <div onClick={() => handleCardClick(book)}>
-                                <Card style={{ width: '9.5rem' }}>
-                                    <Card.Img variant="top" className="cardImg" src={book.image} />
-                                    <Card.Body className="text-center pt-1 pb-2 px-2">
-                                        <Card.Title className="title"> {book.title} </Card.Title>
-                                        <Card.Text className="mb-1 bodyText">
-                                            {book.author} <br />
-                                            Rs. {book.price.toFixed(2)} <br />
-                                            {book.subcategory.category.name} | {book.subcategory.name}
-                                        </Card.Text>
-                                        <Button className="addButton" variant="primary" onClick={() => handleCardClick(book)}>View Book</Button>
-                                    </Card.Body>
-                                </Card>
-                            </div>
+                            <BookCard book={book} setSelectedBook={setSelectedBook} />
                         </Col>
                     )
                 })
-                : <div className="text-center mt-5 py-5">
-                    <h5>No books available</h5>
-                </div>
+                    : <div className="text-center mt-5 py-5">
+                        <h5>No books available</h5>
+                    </div>
                 }
             </Row>
+
+            <div className="mb-4">
+                <SlickSlider newArrivals={newArrivals} setSelectedBook={setSelectedBook} />
+            </div>
 
         </div>
     )
