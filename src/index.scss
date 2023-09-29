@@ -41,6 +41,22 @@ body {
 }
 
 /*Home*/
+.section-heading {
+    display: flex;
+    color: #343434;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.section-heading:after {
+    content: "";
+    height: 3px;
+    width: 50px;
+    background: #00c6dd;
+    margin-top: 10px;
+}
+
 .cardImg {
     height: 215px;
 }
