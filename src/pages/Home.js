@@ -86,10 +86,12 @@ const Home = ({ setSelectedBook }) => {
     return (
         <div>
 
-
+            <div className="mb-4">
+                <SlickSlider newArrivals={newArrivals} setSelectedBook={setSelectedBook} />
+            </div>
 
             <div className="text-center">
-                <h3 className="mb-2 section-heading">Categories</h3>
+                <h3 className="mb-2 section-heading">CATEGORIES</h3>
 
                 <Nav justify variant="pills" defaultActiveKey="0" onSelect={(selectedKey) => handleCategoryNav(parseInt(selectedKey))}>
                     <Nav.Item className="nav-item">
@@ -131,15 +133,13 @@ const Home = ({ setSelectedBook }) => {
                         </Col>
                     )
                 })
-                    : <div className="text-center mt-5 py-5">
-                        <h5>No books available</h5>
+                    : <div className="noBooks-container">
+                        <h5>No books available!</h5>
                     </div>
                 }
             </Row>
 
-            <div className="mb-4">
-                <SlickSlider newArrivals={newArrivals} setSelectedBook={setSelectedBook} />
-            </div>
+
 
         </div>
     )

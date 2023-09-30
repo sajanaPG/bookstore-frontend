@@ -4,12 +4,23 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import BookCard from "./BookCard";
 
-function Arrow(props) {
+function NextArrow(props) {
     const { className, style, onClick } = props;
     return (
         <div
             className={className}
-            style={{ ...style, display: "block", background: "gray" }}
+            style={{ ...style, backgroundImage: "url(https://cdn-icons-png.flaticon.com/128/271/271228.png)", backgroundSize: "cover", width: "30px", height: "30px" }}
+            onClick={onClick}
+        />
+    );
+}
+
+function PrevArrow(props) {
+    const { className, style, onClick } = props;
+    return (
+        <div
+            className={className}
+            style={{ ...style, backgroundImage: "url(https://cdn-icons-png.flaticon.com/128/271/271220.png)", backgroundSize: "cover", width: "30px", height: "30px" }}
             onClick={onClick}
         />
     );
@@ -26,8 +37,8 @@ function SlickSlider({ newArrivals, setSelectedBook }) {
         cssEase: "linear",
         pauseOnHover: true,
         initialSlide: 0,
-        nextArrow: <Arrow />,
-        prevArrow: <Arrow />,
+        nextArrow: <NextArrow />,
+        prevArrow: <PrevArrow />,
         responsive: [
             {
                 breakpoint: 1024,
@@ -52,7 +63,7 @@ function SlickSlider({ newArrivals, setSelectedBook }) {
 
     return (
         <div>
-            <h3 className="text-center mb-4 section-heading"> New Arrivals  </h3>
+            <h3 className="text-center mb-4 section-heading"> NEW ARRIVALS  </h3>
             <Slider {...settings}>
                 {newArrivals.map(book => {
                     return (
