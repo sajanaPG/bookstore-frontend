@@ -13,11 +13,96 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-.st-footer {
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    min-height: 300px;
+/*Footer*/
+.Footer {
+    padding-top: 40px;
+    padding-bottom: 28px;
+    margin-top: 15rem;
+    background-color: #343434;
+    color: white;
+}
+
+.Footer h5 {
+    color: #00c6dd;
+}
+
+.ft-1 h3 {
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.ft-1 span {
+    color: #00c6dd;
+}
+
+.ft-1 p {
+    padding: 0rem 5rem 0.8rem 0;
+    font-weight: 500;
+}
+
+.footer-icons {
+    margin-bottom: 20px;
+}
+
+.footer-icons a {
+    padding-right: 20px;
+    color: white;
+    border-radius: 50%;
+}
+
+.footer-icons a:hover {
+    color: #00c6dd;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.ft-2 ul {
+    list-style: none;
+    padding-left: 4px;
+}
+
+.ft-2 ul li {
+    padding: 0.35rem 0;
+    font-weight: 500;
+}
+
+.ft-2 ul li a:hover {
+    color: #00c6dd;
+}
+
+.ft-2 ul a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.06rem;
+}
+
+.ft-3 p {
+    font-weight: 500;
+    padding: 0.1rem 0;
+    font-size: 1.06rem;
+}
+
+.ft-3 svg {
+    padding-right: 0.5rem;
+    height: 25px;
+    width: 25px;
+}
+
+.ft-3 svg:hover {
+    color: #00c6dd;
+}
+
+.Last-footer {
+    background: #343434;
+    text-align: center;
+    padding: 8px;
+}
+
+.Last-footer p {
+    color: white;
+    margin-bottom: 0;
+    font-size: 1 rem;
+    font-weight: 400;
 }
 
 /* Login/Register */
@@ -68,15 +153,16 @@ body {
     align-items: center;
     justify-content: center;
     height: 100%;
-    text-align: center; 
+    text-align: center;
 }
+
 .book-card-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100%;
-    text-align: center;    
+    text-align: center;
 }
 
 .cardImg {
@@ -233,4 +319,15 @@ body {
 
 .slick-prev {
     left: -30px;
+}
+
+@media (max-width: 767px) {
+    .Footer {
+        text-align: center;
+    }  
+    
+    .ft-1 p {
+        text-align: center;
+        padding: 4px 8px;
+    }
 }
