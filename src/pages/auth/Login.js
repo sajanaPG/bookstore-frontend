@@ -62,6 +62,8 @@ const Login = () => {
                                 {error}
                             </div>
                         }
+                        <p>New user?  <a href="/register">Register Now</a></p>                        
+
                         <div className="text-end">
                             <Button type="submit" variant="primary" className="auth-button">Login</Button>
                         </div>

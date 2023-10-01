@@ -17,7 +17,7 @@ body {
 .Footer {
     padding-top: 40px;
     padding-bottom: 28px;
-    margin-top: 15rem;
+    margin-top: 12px;
     background-color: #343434;
     color: white;
 }
@@ -113,6 +113,21 @@ body {
     background-color: #fff;
 }
 
+.login-box a {
+    text-decoration: none;
+    margin-left: 4px;
+    opacity: 90%;
+}
+
+.login-box a:hover {
+    opacity: 100%;
+}
+
+.login-box p {
+    margin-left: 2px;
+    opacity: 85%;
+}
+
 .auth-button,
 .auth-button:hover,
 .auth-button:hover:active,
@@ -190,13 +205,20 @@ body {
 }
 
 /* Bookdetails page */
+.detail-img {
+    padding: 30px;
+}
+
+.coverImg {
+    max-width: 200px;
+    max-height: 450px;
+    border-radius: 5px;
+}
+
 .detail-text {
-    position: absolute;
-    right: 320px;
     background-color: #dbf6f1;
     border-radius: 5px;
-    padding: 40px 80px 25px 100px;
-    width: 50%;
+    padding: 40px 60px;
     min-height: 300px;
 }
 
@@ -206,16 +228,6 @@ body {
     color: red;
 }
 
-.detail-img {
-    position: absolute;
-    left: 290px;
-    top: 120px;
-}
-
-.coverImg {
-    max-width: 200px;
-    max-height: 450px;
-}
 
 /* Cart */
 .cartButton,
@@ -329,5 +341,11 @@ body {
     .ft-1 p {
         text-align: center;
         padding: 4px 8px;
+    }
+}
+
+@media (max-width: 415px) {
+    .detail-text {
+        padding: 20px;
     }
 }

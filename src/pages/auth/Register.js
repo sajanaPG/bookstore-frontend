@@ -112,6 +112,9 @@ const Register = () => {
                                 {error}
                             </div>
                         }
+                        <p>Allready have an acoount: <a href="/login">Login</a></p>
+                        
+
                         <div className="text-end">
                             <Button type="submit" variant="primary" className="auth-button" disabled={registerDisabled}>Register</Button>
                         </div>

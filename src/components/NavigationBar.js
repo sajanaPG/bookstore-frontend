@@ -52,7 +52,7 @@ function NavigationBar() {
 
                             {auth ?
                                 <>
-                                    <Nav.Link href="/user">{auth}</Nav.Link>
+                                    <Nav.Link>{auth}</Nav.Link>
                                     <Nav.Link onClick={logout} >Log out</Nav.Link>
                                 </>
                                 :
