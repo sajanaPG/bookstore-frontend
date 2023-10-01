@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router";
-//import { Button } from 'react-bootstrap';
 import Card from 'react-bootstrap/Card';
 
 const BookCard = ({ book, setSelectedBook }) => {

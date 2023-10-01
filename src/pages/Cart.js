@@ -35,7 +35,7 @@ const Cart = () => {
         <div className="mx-4">
             <h2 className="text-center mb-5">Shopping Cart</h2>
             {cart.cartItems.length === 0 ? (
-                <div className="text-center">
+                <div className="cart-empty">
                     <h4>Your cart looks empty</h4>
                     <div className="start-shopping">
                         <Link to="/">
